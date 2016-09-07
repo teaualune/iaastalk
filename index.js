@@ -1,0 +1,19 @@
+const express = require('express');
+const http = require('http');
+const path = require('path');
+
+const app = express();
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
+app.use('/images', express.static('images'));
+app.use('/plugin', express.static('node_modules/reveal.js/plugin'));
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+const server = http.Server(app);
+server.listen(process.env.PORT || 3000, () => {
+    console.log('server started');
+});

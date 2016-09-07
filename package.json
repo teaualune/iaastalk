@@ -1,0 +1,21 @@
+{
+    "name": "iaastalk",
+    "main": "index.js",
+    "dependencies": {
+        "express": "4.13.4",
+        "headjs": "1.0.3",
+        "pug": "2.0.0-beta6",
+        "jstransformer-less": "2.1.0",
+        "jstransformer-uglify-js": "1.1.1",
+        "reveal.js": "3.3.0"
+    },
+    "engines": {
+        "node": ">=4.0.0"
+    },
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "Tailun Tseng<teaualune@gmail.com>",
+    "private": true,
+    "version": "0.1.0"
+}

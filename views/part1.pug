@@ -1,0 +1,99 @@
+section: h1 觀念介紹
+
+section
+    h2 Cloud Computing
+    p Wiki 定義：
+    p 由服務供應商（Service Providers）提供各種功能給使用者
+
+section
+    section
+        h2 從服務分層級來看類別：
+        ul
+            li Software as a Service
+            li Platform as a Service
+            li Infastructure as a Service
+    section
+        h3 Software as a Service
+        ul
+            li 提供軟體給使用者
+            li 可跨平台、跨裝置存取內容及使用服務
+            li Gmail, Google Drive, etc.
+    section
+        h3 Platform as a Service
+        ul
+            li 提供建立好的平台讓使用者於其上開發自己的服務
+            li Heroku
+    section
+        h3 Infastructure as a Service
+        ul
+            li 提供基礎伺服器架構
+            li 使用者可自行架設自己的軟體堆疊（Software Stack）與使用技術
+            li 以虛擬機（Virtual Machine, VM）技術讓服務不受硬體層完全綁死
+
+section
+    h2 Web Server 架構與原理
+
+section
+    p Web Server 泛指提供網頁、運行在電腦上的伺服器程式
+    img
+section
+    section
+        h3 為何使用雲端服務架設 Web Server？
+        ol
+            li 無初始成本（硬體成本）
+            li 硬體管理成本極度低廉
+            li 架構彈性，可自由切換、擴增
+    section
+        h3 Use Case #1
+        ul
+            li 購買 PC 桌機，架設於辦公室
+            li 接上電源、網路，24hr 無休運轉
+            li 安裝 Cent OS、Apache 等程式
+            li 由網管指定 IP
+            li 由 DNS Provider 端設定 domain name 與 IP 的連結
+            li 將開發完的 web app 放入 PC
+    section
+        h3 Use Case #2
+        ul
+            li 向 AWS 申請帳號，並建立一個 EC2 instance (VM)
+            li 登入 VM 安裝 Apache 等程式
+            li 由 AWS Console 設定 IP
+            li 由 DNS Provider 端設定 domain name 與 IP 的連結
+            li 將開發完的 web app 放入 VM
+    section
+        h3 優缺點分析
+        table: tbody
+            tr
+                td
+                td #1
+                td #2
+            tr
+                td Pros
+                td
+                td
+                    ul
+                        li 初始成本低
+                        li 可根據連線需求動態增減機器
+            tr
+                td Cons
+                td
+                    ul
+                        li 怕斷電
+                        li 需自行負擔電費
+                        li 網管溝通成本
+                td
+                    ul
+                        li 較難估算成本
+
+section
+    h2 Amazon Web Service (AWS)
+
+section
+    h2 Web Server 開發與佈署流程
+
+section
+    h2 其他雲端服務
+    //- p Google Cloud Platform, Heroku, DigitalOcean
+    //- p AWS: SES, CloudFront, Beanstalk, Lambda, Route53, IoT
+
+

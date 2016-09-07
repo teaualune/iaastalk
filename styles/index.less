@@ -1,0 +1,47 @@
+.reveal {
+    pre, code {
+        font-family: Hack, Menlo Regular, monospace;
+    }
+
+    section {
+        img {
+            border: 0;
+            box-shadow: none;
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        text-transform: none;
+    }
+}
+
+.hljs {
+    background-color: #23241f;
+}
+
+.color- {
+    &red {
+        color: red;
+    }
+    &blue {
+        color: blue;
+    }
+    &green {
+        color: green;
+    }
+    &yellow {
+        color: #e0d000;
+    }
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+table.no-border {
+    tr, th, td {
+        border: 0;
+    }
+}
