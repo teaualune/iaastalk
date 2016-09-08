@@ -21,19 +21,19 @@ section
             li Platform as a Service
             li Infastructure as a Service
     section
-        h3 Software as a Service
+        h3 Software as a Service (SaaS)
         ul
             li 提供軟體給使用者
             li 可跨平台、跨裝置存取內容及使用服務
             li Gmail, Google Drive, etc.
     section
-        h3 Platform as a Service
+        h3 Platform as a Service (PaaS)
         ul
             li 提供建立好的平台讓使用者於其上開發自己的服務
             li 通常預先建立好虛擬機（virtual machine, VM）、OS、程式語言環境、資料庫、web server 等環境，加速開發與佈署時間
             li Heroku, Google App Engine, Azure
     section
-        h3 Infastructure as a Service
+        h3 Infastructure as a Service (IaaS)
         ul
             li 提供基礎伺服器架構，包括 VM、OS、網路層、storage 等
             li 使用者可自行架設自己的軟體堆疊（Software Stack）與使用技術
@@ -249,7 +249,7 @@ section
                 | 因應編輯實體項目功能需求，直接使用現有的 content management system (CMS)：
                 a(href="http://keystonejs.com") Keystone.js
         br
-        p &ast;因應 Keystone.js 選用的服務，回頭挑選使用的雲端服務：
+        p &ast; 因應 Keystone.js 回頭挑選使用的雲端服務：
         ul
             li Database: MongoDB（運行於 EC2 instance 內）
             li 圖片上傳：使用 Cloudinary
@@ -316,8 +316,8 @@ section
         p 因思源樓跳電問題，將下列網站全部改佈署至 AWS：
         table
             thead: tr
-                td 網站
-                td 預計使用網址
+                th 網站
+                th 預計使用網址
             tbody
                 tr
                     td 台大創創中心（TEC）
@@ -354,7 +354,6 @@ section
             li 使用 Apache/Nginx 的 Request Forwarding/Proxy
             li 例：在 TEC 機器的 Nginx 指定所有 /seed 開頭的連線全部導到 Seed 機器去
     section
-        //- | 最終狀況
         img(src="/images/tec_deploy_4.png")
 
 section
@@ -362,4 +361,53 @@ section
     //- p Google Cloud Platform, Heroku, DigitalOcean
     //- p AWS: SES, CloudFront, Beanstalk, Lambda, Route53, IoT
 
+section
+    h3: a(href="https://cloud.google.com") Google Cloud Platform (GCP)
+    section: ul
+        li 由 Google 推出的 IaaS 平台
+        li 大部分功能均能對應至 AWS 的服務
+        li 新帳號提供兩個月內 $600 USD 的試用額度
+        li 因 Google 在彰濱工業區建立 datacenter，亞洲區域的價格和連線速度優於 AWS（台灣內部的連線狀況）
+    section
+        p GCP 和 AWS 服務對照
+        table
+            thead: tr
+                th Amazon Web Service
+                th Google Cloud Platform
+            tbody
+                tr
+                    td EC2
+                    td Compute Engine
+                tr
+                    td S3
+                    td Cloud Storage
+                tr
+                    td Route 53
+                    td Cloud Virtual Network, Cloud DNS, etc.
+                tr
+                    td DynamoDB
+                    td Cloud Bigtable, Cloud Datastore
+                tr
+                    td RDS
+                    td Cloud SQL
 
+section
+    h3: a(href="https://cloud.google.com/appengine") Google App Engine
+    ul
+        li 由 Google 推出的 PaaS 產品，目前已整合進 Google Cloud Platform
+        li 開發者直接撰寫 web app 後上傳至 app engine 即完成佈署，不需從頭設定環境
+        li 支援 Python、Java EE、PHP、Go 等程式語言
+        li 比 IaaS 開發方式方便許多，相對也有許多限制
+section
+    h3: a(href="https://www.heroku.com") Heroku
+    ul
+        li 歷史悠久的 PaaS 平台
+        li 支援 Ruby on Rails、Node.js、PHP、Python、Go 等程式語言
+        li 利用 git 的操作方式進行上傳和佈署
+        li 相較目前為止介紹的服務而言，擁有真正意義上的免費方案
+
+section
+    h3 Amazon Elastic Beanstalk (ELB)
+    ul
+        li AWS 近年發表的 PaaS 平台
+        li 底層集結了 EC2、S3、DB、Route 53 等服務，可說是 AWS 自家集大成的 PaaS 服務
