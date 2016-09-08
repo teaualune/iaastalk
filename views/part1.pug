@@ -255,8 +255,64 @@ section
             li 圖片上傳：使用 Cloudinary
 
 section
+    h2 佈署階段
+    ol
+        li 佈署 TEC 網站至 EC2 instance 上
+        li TEC 網站的網路層相關設定
+        li 其他創創中心相關的網站佈署與設定
+
+section
     section
-        h4 佈署方面需求
+        h4 佈署至 EC2 instance
+        ul
+            li 建立 AWS 帳號
+            li 建立新的 EC2 instance
+            li 用 ssh 登入 VM
+            li 安裝 Node.js、Nginx、MongoDB 等軟體
+            li 從 git repository 複製網站程式碼到 VM
+            li Up and Running!
+    section
+        h4 建立 AWS 帳號
+        ul
+            li 新帳號擁有12個月份的 t2.micro EC2 instance 免費額度
+            li
+                | 或是申請針對 startup 的
+                a(href="https://aws.amazon.com/activate") AWS Activate Program
+    section
+        h4 建立 EC2 Instance
+        table: tbody
+            tr
+                td: span 區域（Zone）
+                td: ul
+                    li VM 實際擺放的資料中心（data center）位置，會影響不同地區使用者的連線速度
+                    li 亞洲通常選擇新加坡或東京
+            tr
+                td: a(href="https://aws.amazon.com/ec2/instance-types") Instance Types
+                td 依功能、VM 能力（CPU 速度、RAM 大小、硬碟容量等）決定價格
+            tr
+                td Amazon Machine Image (AMI)
+                td: ul
+                    li 選擇 AWS 預先準備好的 OS image 安裝至新的 VM 上
+                    li 一般選擇 AWS Linux 或 Ubuntu
+                    li 可以自行建立（例如預先安裝好 Node.js 的 Ubuntu image）
+    section
+        h4 設定新建立的 EC2 Instance
+        table: tbody
+            tr
+                td 下載 PEM 憑證檔
+                td: ul
+                    li 每台機器（或多台機器）均對應一個 .pem 檔案，用於 ssh 登入的身分驗證
+                    li 只能下載一次，請小心保管
+            tr
+                td Security Group
+                td 設定 IP 和 Port 的 blacklist/whitelist
+            tr
+                td Elastic IP
+                td 建立一組對外連接用的 IP address 並指定給新的 EC2 instance
+
+section
+    section
+        h4 其他網站的佈署需求
         p 因思源樓跳電問題，將下列網站全部改佈署至 AWS：
         table
             thead: tr
@@ -273,12 +329,33 @@ section
                     td 創創學程（CEP）
                     td http://cep.ntu.edu.tw
                 tr
-                    td 種子競賽
+                    td 種子競賽（Seed）
                     td http://tec.ntu.edu.tw/seed
                 tr
-                    td 媒合會
+                    td 媒合會（Match）
                     td http://tec.ntu.edu.tw/match
-            li 
+    section
+        h4 理想狀況
+        img(src="/images/tec_deploy_1.png")
+    section
+        h4 從 URL 觀察的理想佈署狀況
+        img(src="/images/tec_deploy_2.png")
+    section
+        h4 實際網站擺設狀況
+        img(src="/images/tec_deploy_3.png")
+    section
+        p 針對子網站（Seed 和 Match）的處理方式
+        ul
+            li 由於網站開發會假設網址從根路徑開始，因此需改動網頁內部程式碼
+            li 把網頁引用的靜態資源路徑加上前綴的子路徑
+            li 網站內部指向的 URL 也同樣處理
+        p 子網站和主網站的位置不同時：
+        ul
+            li 使用 Apache/Nginx 的 Request Forwarding/Proxy
+            li 例：在 TEC 機器的 Nginx 指定所有 /seed 開頭的連線全部導到 Seed 機器去
+    section
+        //- | 最終狀況
+        img(src="/images/tec_deploy_4.png")
 
 section
     h2 其他雲端服務
