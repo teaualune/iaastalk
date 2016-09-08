@@ -173,7 +173,112 @@ section
     h2 Web Server 開發與佈署流程
 section
     section
-        h4
+        h4 需求訪談後：架構規劃
+        ul
+            li 根據網站需求整理需要的服務類型
+            li 選定使用技術
+    section
+        h4 本地端開發
+        ul
+            li 在開發機器（自己的筆電）上架設 web server、database 等
+            li
+                | 此時主要開發的部份包括
+                ul
+                    li 核心商業邏輯
+                    li 和雲端架構無關的部分
+    section
+        h4 線上測試與開發（staging）
+        ul
+            li 在伺服器上架設和實際環境相同的測試用環境
+            li 此時可開發和架構規劃相關的部份
+            li 調整當初架構不足或設計錯誤的地方
+    section
+        h4 佈署上線（production）
+        ul
+            li 架設環境後將完成的程式放上線
+
+section
+    h3 以台大創創中心（TEC）網站為例
+    table.no-boder: tbody: tr
+        td
+            h4 開發階段
+            ul
+                li 需求訪談與整理
+                li 架構規劃
+        td
+            h4 佈署上線
+            ul
+                li 佈署方面需求
+                li 上線過程
+section
+    section
+        h4 網站功能需求
+        ul
+            li 可新增、編輯最新消息、活動、專欄等實體（Entity）項目
+            li 提供讓管理員登入的後台頁面進行編輯
+            li 需有圖片上傳功能
+    section
+        h4 所需服務
+        ol
+            li 運行 Web Server：AWS EC2
+            li
+                | 將實體項目儲存於資料庫：
+                ol
+                    li 在 EC2 instance 上運行 database
+                    li 使用 DynamoDB
+                    li 使用 RDS
+            li
+                | 圖片上傳功能：
+                ol
+                    li 直接將圖片儲存於 EC2 instance 的檔案系統內
+                    li 使用 S3
+                    li
+                        | 使用其他第三方服務&nbsp;
+                        i e.g.
+                        | &nbsp;
+                        a(href="http://cloudinary.com") Cloudinary
+    section
+        h4 選定使用技術
+        ul
+            li
+                | 因
+                span.color-red 機器架構可自行選定
+                | ，能夠自由選用使用技術
+            li Web Server 主體選定使用 Node.js 開發
+            li
+                | 因應編輯實體項目功能需求，直接使用現有的 content management system (CMS)：
+                a(href="http://keystonejs.com") Keystone.js
+        br
+        p &ast;因應 Keystone.js 選用的服務，回頭挑選使用的雲端服務：
+        ul
+            li Database: MongoDB（運行於 EC2 instance 內）
+            li 圖片上傳：使用 Cloudinary
+
+section
+    section
+        h4 佈署方面需求
+        p 因思源樓跳電問題，將下列網站全部改佈署至 AWS：
+        table
+            thead: tr
+                td 網站
+                td 預計使用網址
+            tbody
+                tr
+                    td 台大創創中心（TEC）
+                    td http://tec.ntu.edu.tw
+                tr
+                    td 創聯會（NTUEA）
+                    td http://ntuea.ntu.edu.tw
+                tr
+                    td 創創學程（CEP）
+                    td http://cep.ntu.edu.tw
+                tr
+                    td 種子競賽
+                    td http://tec.ntu.edu.tw/seed
+                tr
+                    td 媒合會
+                    td http://tec.ntu.edu.tw/match
+            li 
 
 section
     h2 其他雲端服務
