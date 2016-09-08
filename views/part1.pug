@@ -121,7 +121,7 @@ section
         ul
             li AWS 是一套完整的 cloud computing solution，涵蓋 IaaS 和 PaaS 等層級的服務
             li 可達成各種使用情境，如 Web Server、High Performance Computing (HPC)、Media and Gaming 等
-            li 除了手動由網路介面（console）操作，所有 AWS 服務均能藉由 shell script 自動化
+            li 所有 AWS 的設定均能手動由網路介面（console）操作，或藉由 shell script 自動化
     each imgName in ['iaas', 'paas', 'others']
         section
             img(src='/images/aws_' + imgName + '.jpg')
@@ -147,10 +147,10 @@ section
             li 搭配 EC2 和其他服務，可用來儲存 Web App 生成的檔案
             li 例如，使用者上傳大頭照至 EC2 運行的 Web App 後，轉存至 S3 儲存
     section
-        h3 Route53：動態設定 DNS
+        h3 Route 53：動態設定 DNS
         ul
             li 綁定網域後，能夠任意新增子網域和其 DNS 規則
-            li Route53 同時提供網域註冊服務
+            li Route 53 同時提供網域註冊服務
     section
         h3 DynamoDB &amp; RDS
         ul
@@ -180,7 +180,7 @@ section
     section
         h4 本地端開發
         ul
-            li 在開發機器（自己的筆電）上架設 web server、database 等
+            li 在開發機器上架設 web server、database 等
             li
                 | 此時主要開發的部份包括
                 ul
