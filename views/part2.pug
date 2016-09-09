@@ -19,43 +19,43 @@ section
     h4 常用指令
     table: tbody
         tr
-            td: pre cd
+            td: pre.align-center cd
             td: small
                 | 進入資料夾
                 br
                 | cd = change directory
         tr
-            td: pre ls
+            td: pre.align-center ls
             td: small
                 | 顯示資料夾內容
                 br
                 | ls = list
         tr
-            td: pre pwd
+            td: pre.align-center pwd
             td: small
                 | 顯示目前的資料夾路徑
                 br
                 | pwd = print working directory
         tr
-            td: pre cp
+            td: pre.align-center cp
             td: small
                 | 複製檔案
                 br
                 | cp = copy
         tr
-            td: pre mv
+            td: pre.align-center mv
             td: small
                 | 移動檔案
                 br
                 | mv = move
         tr
-            td: pre rm
+            td: pre.align-center rm
             td: small
                 | 刪除檔案
                 br
                 | rm = remove
         tr
-            td: pre mkdir
+            td: pre.align-center mkdir
             td: small
                 | 建立資料夾
                 br
@@ -64,89 +64,92 @@ section
     h4 File System
     ul
         li
-            | Unix 的檔案系統以
-            code  / 
-            | 為根目錄，代表最上層資料夾
+            | Unix 的檔案系統以&nbsp;
+            code /
+            |  為根目錄，代表最上層資料夾
         li
-            | 每個使用者均有自己的家目錄（Home Directory），以
-            code  ~ 
-            | 表示
+            | 每個使用者均有自己的家目錄（Home Directory），以&nbsp;
+            code ~
+            |  表示
             ul
                 li
-                    | 在 Linux 上為
-                    code  /home/username
+                    | 在 Linux 上為&nbsp;
+                    code /home/username
                 li
-                    | 在 OS X 為
-                    code  /Users/username
+                    | 在 OS X 為&nbsp;
+                    code /Users/username
                 li 登入後預設從家目錄開始
         li
-            | 以
-            code  .. 
-            | 表示上層資料夾、
-            code  . 
-            | 表示現在的資料夾
+            | 以&nbsp;
+            code ..
+            |  表示上層資料夾、
+            code .
+            |  表示現在的資料夾
 section
     h4 sudo
     ul
         li 每個資料夾和檔案均有不同的擁有者權限，一般分使用者和 root 兩種
         li 一般使用者不能直接更動 root 權限的檔案/資料夾
         li
-            | 使用
-            code  sudo 
-            | 前綴於指令前，即可對 root 權限的檔案進行操作
+            | 使用&nbsp;
+            code sudo
+            |  前綴於指令前，即可對 root 權限的檔案進行操作
         li 需輸入密碼以進行 sudo 操作
 section
     h4 其他常用指令
-    table: tbody
-        tr
-            td: pre grep
-            td
-                ul.small
-                    li
-                        | 文字搜尋，常搭配
-                        code  ls 
-                        | 使用
-                    li 例：搜尋此資料夾內所有附檔名為 txt 的檔案
-                pre ls . | grep .txt
-                small grep = globally search a regular expression and print
-        tr
-            td: pre scp
-            td: small scp = ssh + cp，直接在本地遠端兩邊進行檔案複製的操作
-        tr
-            td: pre chown
-            td: small
-                | 改變檔案的擁有者權限
-                br
-                | chown = change owner
-        tr
-            td: pre chmod
-            td: small
-                | 改變檔案的讀寫權限，例如從唯讀變成可修改、從一般檔案變成可執行狀態
-                br
-                | chmod = change mode
-        tr
-            td: pre rmdir
-            td: small
-                | 刪除資料夾
-                br
-                | rmdir = remove directory
-        tr
-            td: pre touch
-            td: small 建立空檔案
-        tr
-            td: pre history
-            td: small 查詢過去輸入的指令，可搭配 grep 方便搜尋
+    section
+        table: tbody
+            tr
+                td: pre.align-center rmdir
+                td: small
+                    | 刪除資料夾
+                    br
+                    | rmdir = remove directory
+            tr
+                td: pre.align-center touch
+                td: small 建立空檔案
+            tr
+                td: pre.align-center history
+                td: small 查詢過去輸入的指令，可搭配 grep 方便搜尋
+    section
+        table: tbody
+            tr
+                td: pre.align-center grep
+                td
+                    ul.small
+                        li
+                            | 文字搜尋，常搭配&nbsp;
+                            code ls
+                            |  使用
+                        li 例：搜尋此資料夾內所有附檔名為 txt 的檔案
+                    pre ls . | grep .txt
+                    small grep = globally search a regular expression and print
+            tr
+                td: pre.align-center scp
+                td: small scp = ssh + cp，直接在本地遠端兩邊進行檔案複製的操作
+            tr
+                td: pre.align-center chown
+                td: small
+                    | 改變檔案的擁有者權限
+                    br
+                    | chown = change owner
+            tr
+                td: pre.align-center chmod
+                td: small
+                    | 改變檔案的讀寫權限，例如從唯讀變成可修改、從一般檔案變成可執行狀態
+                    br
+                    | chmod = change mode
 section
     h4 開發和佈署常用的軟體指令
     table: tbody
         tr
-            td: pre ssh
+            td: pre.align-center ssh
             td: small 遠端連線進入別的電腦，對方需安裝 openssl-server 並開啟 ssh port 接受連線
         tr
-            td: pre git
+            td: pre.align-center git
             td: small 版本控制系統（Version Control System, VCS），通常用來管理程式碼
         tr
-            td: pre vim
+            td: pre.align-center vim
             td
                 ul.small
                     li 文字編輯器
@@ -156,7 +159,34 @@ section
 
 section
     h3 實機操作：用 ssh 登入 EC2 Instance
-    pre ssh -i seed.pem ubuntu@54.64.194.31
 
+section
+    section
+        h4 建立新的 EC2 Instance
+        ul
+            li 選擇區域
+            li 設定 VM 規格
+            li 選取要作為基底的 AMI
+            li 下載新的 pem 憑證檔，或選擇舊的使用
+            li
+                | 將下載的 pem 檔更改讀寫權限至「只有自己可見，唯讀」
+                ul: li
+                    | 相當於&nbsp;
+                    code -r--------
+                    |  =&nbsp;
+                    code 400
+        pre chmod 400 xxx.pem
+    section
+        h4 登入新建立的機器
+        ul
+            li 從 AWS Console 找到新機器的 IP 或 Public DNS
+            li 使用 ssh 搭配 pem 檔登入，例：
+        pre ssh -i seed.pem ubuntu@54.64.194.31
+        ul: li 因 pem 檔包含了帳號密碼資訊，登入後直接擁有 sudo 等級權限
+    section
+        h4 Web Server 操作範例：建立 Apache HTTP Server
+        p: a(href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html") Tutorial: Installing a LAMP Web Server on Amazon Linux
+    section
+        h4 Web Server 操作範例：將這份投影片佈署至 EC2 上
 section
     h3 Thanks for Listening!

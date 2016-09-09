@@ -1,8 +1,12 @@
 .reveal {
     pre, code {
         font-family: Hack, Menlo Regular, monospace;
+        font-size: .6em;
         width: 100%;
-        text-align: center;
+        padding: .3em .3em .1em;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(0, 0, 0, 0.5);
     }
 
     section {
@@ -22,9 +26,24 @@
         }
     }
 
+    blockquote {
+        border-left: 6px solid gray;
+        box-shadow: none;
+        background: none;
+    }
+
     .small {
         font-size: 60%;
         line-height: 1.2em;
+    }
+
+    .align {
+        &-right {
+            text-align: right;
+        }
+        &-center {
+            text-align: center;
+        }
     }
 
 }
@@ -52,10 +71,6 @@
     content: "";
     display: table;
     clear: both;
-}
-
-.align-right {
-    text-align: right;
 }
 
 table {
